@@ -1,5 +1,8 @@
-
-
+'''
+Week 8 Assignment Molecular Mass
+Tests the molecular mass program
+Jun 12 2021
+'''
 from chemistry import make_periodic_table, \
     parse_formula, compute_molar_mass, FormulaError
 from pytest import approx

@@ -1,3 +1,10 @@
+'''
+Week 8 Assignment Molecular Mass
+Determines the molecular mass of any chemical formula
+Jun 12 2021
+'''
+
+
 def main():
     formula = input("Enter chemical formula: ")
     mass = float(input("Enter mass in grams: "))
@@ -35,6 +42,7 @@ def main():
     # Print the molar mass.
 
     # Print the number of moles.
+
 
 def make_periodic_table():
     table = {
@@ -159,6 +167,7 @@ def make_periodic_table():
     }
     return table
 
+
 class FormulaError(ValueError):
     """FormulaError is the type of error that
     parse_formula will raise if a formula is invalid.
@@ -265,6 +274,7 @@ def compute_molar_mass(symbol_quantity_list, periodic_table):
     #   Multiply the atomic mass by the quantity.
     #   Add the product into the total mass.
     return total_mass
+
 
 if __name__ == "__main__":
     main()

@@ -1,4 +1,8 @@
-#Week 2
+'''
+Week 2 Checkpoint Boxes
+Calculates how many boxes the user will need for x items per box.
+Apr 27 2021
+'''
 import math
 
 total_item = int(input('Enter the number of items: '))

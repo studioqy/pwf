@@ -1,3 +1,8 @@
+'''
+Week 4 Assignment Scenery
+Displays nice pleasant scenery
+May 15 2021
+'''
 import tkinter as tk
 from math import ceil
 
@@ -59,11 +64,16 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
     draw_cloud(canvas, 580, 145, 920, 265, "gainsboro")
     draw_cloud(canvas, 530, 130, 700, 200, "gray91")
     draw_cloud(canvas, 400, 35, 600, 90, "snow")
-    draw_tree(canvas, 370, 200, 390, 300, 300, 160, 440, 260, 340, 145, 480, 230, 370, 200, 463, 245)
-    draw_grass(canvas, scene_right, grass_range, grass_x, grass_y, grass_height, grass_color)
-    draw_grass(canvas, scene_right, grass_range, grass_x, 350, grass_height, "chartreuse3")
-    draw_grass(canvas, scene_right, grass_range, grass_x, 400, grass_height, "chartreuse2")
-    draw_grass(canvas, scene_right, grass_range, grass_x, 450, grass_height, "chartreuse1")
+    draw_tree(canvas, 370, 200, 390, 300, 300, 160, 440,
+              260, 340, 145, 480, 230, 370, 200, 463, 245)
+    draw_grass(canvas, scene_right, grass_range, grass_x,
+               grass_y, grass_height, grass_color)
+    draw_grass(canvas, scene_right, grass_range,
+               grass_x, 350, grass_height, "chartreuse3")
+    draw_grass(canvas, scene_right, grass_range,
+               grass_x, 400, grass_height, "chartreuse2")
+    draw_grass(canvas, scene_right, grass_range,
+               grass_x, 450, grass_height, "chartreuse1")
     #draw_cloud(canvas, cloud_x, cloud_y, cloud_x1, cloud_x2, cloud_color)
 
 
@@ -96,33 +106,46 @@ def draw_pine_tree(canvas, peak_x, peak_y, height):
 
     # Draw the trunk of the pine tree.
     canvas.create_rectangle(trunk_left, skirt_bottom,
-            trunk_right, trunk_bottom,
-            outline="gray20", width=1, fill="tan3")
+                            trunk_right, trunk_bottom,
+                            outline="gray20", width=1, fill="tan3")
 
     # Draw the crown (also called skirt) of the pine tree.
     canvas.create_polygon(peak_x, peak_y,
-            skirt_right, skirt_bottom,
-            skirt_left, skirt_bottom,
-            outline="gray20", width=1, fill="dark green")
+                          skirt_right, skirt_bottom,
+                          skirt_left, skirt_bottom,
+                          outline="gray20", width=1, fill="dark green")
+
 
 def draw_sky(canvas):
-    canvas.create_rectangle(0,0,800,500,fill="sky blue")
+    canvas.create_rectangle(0, 0, 800, 500, fill="sky blue")
 # Call the main function so that
 # this program will start executing.
+
+
 def draw_grass(canvas, width, grass_range, grass_x, grass_y, grass_height, grass_color):
     for i in range(grass_range):
         grass_x2 = grass_x + grass_height
         grass_y2 = grass_y - grass_height
         grass_x3 = grass_x2 + grass_height
-        canvas.create_polygon(grass_x, grass_y, grass_x2, grass_y2, grass_x3, grass_y, grass_x3, 500, 0, 500, fill=grass_color)
+        canvas.create_polygon(grass_x, grass_y, grass_x2, grass_y2,
+                              grass_x3, grass_y, grass_x3, 500, 0, 500, fill=grass_color)
         grass_x = grass_x3
 
-def draw_cloud(canvas, cloud_x, cloud_y, cloud_x2, cloud_y2, cloud_color):
-    canvas.create_oval(cloud_x, cloud_y, cloud_x2, cloud_y2, fill=cloud_color, outline=cloud_color)
 
-def draw_tree(canvas,trunk_x, trunk_y, trunk_x2, trunk_y2, leaf1_x, leaf1_y, leaf1_x2, leaf1_y2, leaf2_x, leaf2_y, leaf2_x2, leaf2_y2,leaf3_x, leaf3_y, leaf3_x2, leaf3_y2):
-    canvas.create_rectangle(trunk_x, trunk_y, trunk_x2, trunk_y2, fill="sienna4", outline="sienna4")
-    canvas.create_rectangle (leaf1_x, leaf1_y, leaf1_x2, leaf1_y2, fill="green4", outline='green4')
-    canvas.create_rectangle (leaf2_x, leaf2_y, leaf2_x2, leaf2_y2, fill="green3", outline='green3')
-    canvas.create_rectangle (leaf3_x, leaf3_y, leaf3_x2, leaf3_y2, fill="green2", outline='green2')
+def draw_cloud(canvas, cloud_x, cloud_y, cloud_x2, cloud_y2, cloud_color):
+    canvas.create_oval(cloud_x, cloud_y, cloud_x2, cloud_y2,
+                       fill=cloud_color, outline=cloud_color)
+
+
+def draw_tree(canvas, trunk_x, trunk_y, trunk_x2, trunk_y2, leaf1_x, leaf1_y, leaf1_x2, leaf1_y2, leaf2_x, leaf2_y, leaf2_x2, leaf2_y2, leaf3_x, leaf3_y, leaf3_x2, leaf3_y2):
+    canvas.create_rectangle(trunk_x, trunk_y, trunk_x2,
+                            trunk_y2, fill="sienna4", outline="sienna4")
+    canvas.create_rectangle(leaf1_x, leaf1_y, leaf1_x2,
+                            leaf1_y2, fill="green4", outline='green4')
+    canvas.create_rectangle(leaf2_x, leaf2_y, leaf2_x2,
+                            leaf2_y2, fill="green3", outline='green3')
+    canvas.create_rectangle(leaf3_x, leaf3_y, leaf3_x2,
+                            leaf3_y2, fill="green2", outline='green2')
+
+
 main()

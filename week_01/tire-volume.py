@@ -1,8 +1,7 @@
 '''
-QY
-CSE 111-02
-Professor
-4/24/2021
+Week 1 Assignment Tire Volume
+Calculates the volume of tires on a car
+Apr 24 2022
 '''
 import math
 from datetime import datetime
@@ -29,7 +28,8 @@ with open("volumes.txt", "at") as vol_file:
 
     print(current_time_and_date, w, a, d, v, file=vol_file)
 
-# Extra- asks user if they would like to buy a tire, if yes then it takes their phone number and stores it
+# Extra- asks user if they would like to buy a tire, if yes then it takes
+# their phone number and stores it
 tire_buy = input("\nWould you like to buy a tire? (y/n)")
 if tire_buy.lower() == "y":
     phone_num = input("Please enter your phone number: ")

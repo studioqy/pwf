@@ -1,6 +1,12 @@
+'''
+Week 6 Assignment Sentences
+Tests the sentences program
+May 29 2021
+'''
 from typing import Sized
 import pytest
 from sentences import get_determiner, get_noun, get_prepositional_phrase, get_verb, get_preposition, get_adjective
+
 
 def test_get_determiner():
     # Test the singular determiners.
@@ -31,36 +37,39 @@ def test_get_determiner():
 #     for _ in range(4)
 #         word = get_noun(1)
 
+
 def test_adjective():
     adjectives = ['important', 'annoying', 'unique', 'sad', 'outstanding',
-    'tall', 'likeable', 'unkempt', 'loyal', 'clumsy']
+                  'tall', 'likeable', 'unkempt', 'loyal', 'clumsy']
     for _ in range(100):
         word = get_adjective()
         assert word in adjectives
 
+
 def test_get_noun():
     singular_nouns = ['adult', 'bird', 'boy', 'car', 'cat',
-                'child', 'dog', 'girl', 'man', 'woman']
+                      'child', 'dog', 'girl', 'man', 'woman']
     for _ in range(100):
         word = get_noun(1)
         assert word in singular_nouns
 
     plural_nouns = ["adults", "birds", "boys", "cars", "cats",
-                "children", "dogs", "girls", "men", "women"]
+                    "children", "dogs", "girls", "men", "women"]
     for _ in range(100):
         word = get_noun(2)
         assert word in plural_nouns
 
+
 def test_get_verb():
     past_verbs = ["drank", "ate", "grew", "laughed", "thought",
-        "ran", "slept", "talked", "walked", "wrote"]
+                  "ran", "slept", "talked", "walked", "wrote"]
     present_singular_verbs = ["drinks", "eats", "grows", "laughs", "thinks",
-        "runs", "sleeps", "talks", "walks", "writes"]
+                              "runs", "sleeps", "talks", "walks", "writes"]
     present_plural_verbs = ["drink", "eat", "grow", "laugh", "think",
-        "run", "sleep", "talk", "walk", "write"]
+                            "run", "sleep", "talk", "walk", "write"]
     future_verbs = ["will drink", "will eat", "will grow", "will laugh",
-        "will think", "will run", "will sleep", "will talk",
-        "will walk", "will write"]
+                    "will think", "will run", "will sleep", "will talk",
+                    "will walk", "will write"]
     for _ in range(100):
         word = get_verb(1, "past")
         assert word in past_verbs
@@ -74,25 +83,27 @@ def test_get_verb():
         word = get_verb(1, "future")
         assert word in future_verbs
 
+
 def test_get_preposition():
     prepositions = ["about", "above", "across", "after", "along",
-        "around", "at", "before", "behind", "below",
-        "beyond", "by", "despite", "except", "for",
-        "from", "in", "into", "near", "of",
-        "off", "on", "onto", "out", "over",
-        "past", "to", "under", "with", "without"]
+                    "around", "at", "before", "behind", "below",
+                    "beyond", "by", "despite", "except", "for",
+                    "from", "in", "into", "near", "of",
+                    "off", "on", "onto", "out", "over",
+                    "past", "to", "under", "with", "without"]
     for _ in range(100):
         word = get_preposition()
         assert word in prepositions
 
+
 def test_get_prepositional_phrase():
     prep_list_singular = get_prepositional_phrase(1).split(' ')
     prepositions = ["about", "above", "across", "after", "along",
-        "around", "at", "before", "behind", "below",
-        "beyond", "by", "despite", "except", "for",
-        "from", "in", "into", "near", "of",
-        "off", "on", "onto", "out", "over",
-        "past", "to", "under", "with", "without"]
+                    "around", "at", "before", "behind", "below",
+                    "beyond", "by", "despite", "except", "for",
+                    "from", "in", "into", "near", "of",
+                    "off", "on", "onto", "out", "over",
+                    "past", "to", "under", "with", "without"]
     for _ in range(100):
         assert prep_list_singular[0] in prepositions
 
@@ -101,18 +112,17 @@ def test_get_prepositional_phrase():
         assert prep_list_singular[1] in singular_determiners
 
     singular_nouns = ['adult', 'bird', 'boy', 'car', 'cat',
-                'child', 'dog', 'girl', 'man', 'woman']
+                      'child', 'dog', 'girl', 'man', 'woman']
     for _ in range(100):
         assert prep_list_singular[2] in singular_nouns
 
-
     prep_list_plural = get_prepositional_phrase(2).split(' ')
     prepositions = ["about", "above", "across", "after", "along",
-        "around", "at", "before", "behind", "below",
-        "beyond", "by", "despite", "except", "for",
-        "from", "in", "into", "near", "of",
-        "off", "on", "onto", "out", "over",
-        "past", "to", "under", "with", "without"]
+                    "around", "at", "before", "behind", "below",
+                    "beyond", "by", "despite", "except", "for",
+                    "from", "in", "into", "near", "of",
+                    "off", "on", "onto", "out", "over",
+                    "past", "to", "under", "with", "without"]
     for _ in range(100):
         assert prep_list_plural[0] in prepositions
 
@@ -121,8 +131,9 @@ def test_get_prepositional_phrase():
         assert prep_list_plural[1] in plural_determiners
 
     plural_nouns = ["adults", "birds", "boys", "cars", "cats",
-                "children", "dogs", "girls", "men", "women"]
+                    "children", "dogs", "girls", "men", "women"]
     for _ in range(100):
         assert prep_list_plural[2] in plural_nouns
+
 
 pytest.main(["-v", "--tb=line", "-rN", "test_sentences.py"])

@@ -1,3 +1,10 @@
+'''
+Week 8 Checkpoint Vehicles
+Prints data about various vehicles
+Jun 8 2021
+'''
+
+
 def main():
     # Create a dictionary that contains data about six vehicles.
     # The key for each vehicle in the dictionary is the vehicle's
@@ -5,7 +12,6 @@ def main():
     # a list that contains the year, manufacturer, model, color,
     # engine design, and engine displacement.
 
-    
     vehicles = {
         # VIN: [year, manufacturer, model, color, eng_design, eng_displace]
         "1J4GL48K4UF993861": [2002, "Jeep", "Liberty", "blue", "V6", 3.7],
@@ -38,8 +44,6 @@ def main():
         # Don't print the year, engine design, or displacement.
 
         print(f"{veh_manufacturer} {veh_model} {veh_color}")
-
-
 
     else:
         # Print a message stating that the VIN entered

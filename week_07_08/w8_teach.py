@@ -1,3 +1,9 @@
+'''
+Week 8 Team Activity People Data
+Prints information about a set of people such as the total marriages,
+genders, and so on.
+Jun 10 2021
+'''
 # Each value in the people dictionary is a list. These
 # are the indexes of the elements in those lists.
 NAME_INDEX = 0
@@ -110,13 +116,12 @@ def print_death_age(people_dict):
     """
     print("Ages at Death")
     for person in people_dict:
-      name = people_dict[person][NAME_INDEX]
-      birth_year = people_dict[person][BIRTH_YEAR_INDEX]
-      death_year = people_dict[person][DEATH_YEAR_INDEX]
-      death_age = int(death_year) - int(birth_year)
-      print(f"{name} {death_age} {birth_year}-{death_year}")
+        name = people_dict[person][NAME_INDEX]
+        birth_year = people_dict[person][BIRTH_YEAR_INDEX]
+        death_year = people_dict[person][DEATH_YEAR_INDEX]
+        death_age = int(death_year) - int(birth_year)
+        print(f"{name} {death_age} {birth_year}-{death_year}")
     print("")
-    
 
 
 def count_genders(people_dict):
@@ -131,28 +136,31 @@ def count_genders(people_dict):
     """
     genders = []
     for person in people_dict.items():
-      people_gen = person[1]
-      genders.append(people_gen[GENDER_INDEX])
+        people_gen = person[1]
+        genders.append(people_gen[GENDER_INDEX])
     male_num = genders.count('M')
     female_num = genders.count('F')
-    print(f'Genders\nNumber of males: {male_num}\nNumber of females: {female_num}')
+    print(
+        f'Genders\nNumber of males: {male_num}\nNumber of females: {female_num}')
     return None
 
+
 def marriage_count(people_dict, marriages_dict):
-  for person_key in people_dict.items():
-    values = person_key[1]
-    name = values[0]
-    print(name, end=' ')
-    husbands = []
-    wives = []
-    for marriage_key in marriages_dict.items():
-      mar_values = marriage_key[1]
-      husbands.append(mar_values[HUSBAND_KEY_INDEX])
-      wives.append(mar_values[WIFE_KEY_INDEX])
-    husbands_count = husbands.count(person_key[0])
-    wives_count = wives.count(person_key[0])
-    total_marriages = husbands_count + wives_count
-    print(total_marriages)
+    for person_key in people_dict.items():
+        values = person_key[1]
+        name = values[0]
+        print(name, end=' ')
+        husbands = []
+        wives = []
+        for marriage_key in marriages_dict.items():
+            mar_values = marriage_key[1]
+            husbands.append(mar_values[HUSBAND_KEY_INDEX])
+            wives.append(mar_values[WIFE_KEY_INDEX])
+        husbands_count = husbands.count(person_key[0])
+        wives_count = wives.count(person_key[0])
+        total_marriages = husbands_count + wives_count
+        print(total_marriages)
+
 
 def print_marriages(marriages_dict, people_dict):
     """For each marriage in the marriages dictionary, print
@@ -169,48 +177,50 @@ def print_marriages(marriages_dict, people_dict):
     Return: nothing
     """
     for key in marriages_dict:
-      marriage = marriages_dict[key]
-      husband = people_dict[marriage[HUSBAND_KEY_INDEX]]
-      husband_name = husband[NAME_INDEX]
+        marriage = marriages_dict[key]
+        husband = people_dict[marriage[HUSBAND_KEY_INDEX]]
+        husband_name = husband[NAME_INDEX]
 
-      wife = people_dict[marriage[WIFE_KEY_INDEX]]
-      wife_name = wife[NAME_INDEX]
-      
-      marriage_date = marriage[WEDDING_YEAR_INDEX]
-      husband_age = marriage_date - husband[BIRTH_YEAR_INDEX]
-      wife_age = marriage_date - wife[BIRTH_YEAR_INDEX]
+        wife = people_dict[marriage[WIFE_KEY_INDEX]]
+        wife_name = wife[NAME_INDEX]
 
-      print(f"{husband_name} ({husband_age}) <{marriage_date}> {wife_name} ({wife_age})")
+        marriage_date = marriage[WEDDING_YEAR_INDEX]
+        husband_age = marriage_date - husband[BIRTH_YEAR_INDEX]
+        wife_age = marriage_date - wife[BIRTH_YEAR_INDEX]
+
+        print(
+            f"{husband_name} ({husband_age}) <{marriage_date}> {wife_name} ({wife_age})")
+
 
 def count_marriages(marriages_dict, people_list):
-  marriage_numbers = []
-  names_list = []
-  for key in marriages_dict:
-    marriage = marriages_dict[key]
-    husband = marriage[HUSBAND_KEY_INDEX]
-    wife = marriage[WIFE_KEY_INDEX]
+    marriage_numbers = []
+    names_list = []
+    for key in marriages_dict:
+        marriage = marriages_dict[key]
+        husband = marriage[HUSBAND_KEY_INDEX]
+        wife = marriage[WIFE_KEY_INDEX]
 
-    if husband not in names_list:
-      marriage_numbers.append(1)
-      names_list.append(husband)
-    elif husband in names_list:
-      index = names_list.index(husband)
-      marriage_numbers[index] += 1
+        if husband not in names_list:
+            marriage_numbers.append(1)
+            names_list.append(husband)
+        elif husband in names_list:
+            index = names_list.index(husband)
+            marriage_numbers[index] += 1
 
-    if wife not in names_list:
-      marriage_numbers.append(1)
-      names_list.append(wife)
-    elif wife in names_list:
-      index = names_list.index(wife)
-      marriage_numbers[index] += 1
-  
-  for name in names_list:
-    index = names_list.index(name) 
-    count = marriage_numbers[index]
-    real_name = people_list[name][NAME_INDEX]
-    print(f"{real_name} {count}")
+        if wife not in names_list:
+            marriage_numbers.append(1)
+            names_list.append(wife)
+        elif wife in names_list:
+            index = names_list.index(wife)
+            marriage_numbers[index] += 1
 
-    
+    for name in names_list:
+        index = names_list.index(name)
+        count = marriage_numbers[index]
+        real_name = people_list[name][NAME_INDEX]
+        print(f"{real_name} {count}")
+
+
 # If this file was executed like this:
 # > python teach_solution.py
 # then call the main function. However, if this file

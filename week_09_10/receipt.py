@@ -1,5 +1,11 @@
+'''
+Week 10 Assignment Receipt
+Prints a reciept based on products and a shopping request in two csv files
+Jun 26 2021
+'''
 import csv
 from datetime import datetime
+
 
 def main():
     try:
@@ -8,7 +14,7 @@ def main():
         print("Inkom Emporium\n")
         current_date_and_time = datetime.now()
         #print(f"{current_date_and_time:%A %I:%M %p}")
-        
+
         prod_file = "products.csv"
         req_file = "request.csv"
         prod_dict = read_products(prod_file)
@@ -30,6 +36,7 @@ def main():
     except KeyError:
         print('Error: Incorrect key')
 
+
 def read_products(prod_file):
     products = {}
     with open(prod_file, 'rt') as prod_csv:
@@ -39,6 +46,7 @@ def read_products(prod_file):
             key = row[0]
             products[key] = [row[1], float(row[2])]
     return products
+
 
 def process_request(req_file, prod_dict):
     with open(req_file, mode='rt') as req_csv:
@@ -57,10 +65,12 @@ def process_request(req_file, prod_dict):
             print(f'{prod_name}: {prod_quantity} @ {single_price:.2f}')
     return subtotal, item_count
 
+
 def compute_total(subtotal, tax_percent):
     tax_amount = subtotal * tax_percent
     final_total = subtotal + tax_amount
     return tax_amount, final_total
+
 
 if __name__ == "__main__":
     main()

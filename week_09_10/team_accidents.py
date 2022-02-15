@@ -1,3 +1,9 @@
+'''
+Week 10 Checkpoint Vehicle Accidents
+Determines how many vehicle accidents could have been prevented from any
+given percent reduction in texting while driving.
+Jun 22 2021
+'''
 import csv
 
 
@@ -15,94 +21,94 @@ FATIGUE_COLUMN = 9
 
 
 def main():
-  try:
-    # Prompt the user for a filename and open that text file.
-    filename = input("Name of file that contains NHTSA data: ")
-    with open(filename, "rt") as text_file:
+    try:
+        # Prompt the user for a filename and open that text file.
+        filename = input("Name of file that contains NHTSA data: ")
+        with open(filename, "rt") as text_file:
 
-        # Prompt the user for a percentage.
-        while True:
-          try:
-            perc_reduc = float(input("Percent reduction of texting while driving [0, 100]: "))
-            if perc_reduc > 100:
-              print(f"Error: user input cannot be greater than 100")
-            elif perc_reduc < 0:
-              print("Error: user input cannot be less than 0")
-            else:
-              break
-          except ValueError:
-            print(f"Error: Please enter a number between 0 and 100")
+            # Prompt the user for a percentage.
+            while True:
+                try:
+                    perc_reduc = float(
+                        input("Percent reduction of texting while driving [0, 100]: "))
+                    if perc_reduc > 100:
+                        print(f"Error: user input cannot be greater than 100")
+                    elif perc_reduc < 0:
+                        print("Error: user input cannot be less than 0")
+                    else:
+                        break
+                except ValueError:
+                    print(f"Error: Please enter a number between 0 and 100")
 
+            print()
+            print(f"With a {perc_reduc}% reduction in using a cell phone while",
+                  "driving, approximately this number of injuries and",
+                  "deaths would have been prevented in the USA.", sep="\n")
+            print()
+            print("Year, Injuries, Deaths")
 
-        print()
-        print(f"With a {perc_reduc}% reduction in using a cell phone while",
-                "driving, approximately this number of injuries and",
-                "deaths would have been prevented in the USA.", sep="\n")
-        print()
-        print("Year, Injuries, Deaths")
+            # Use the csv module to create a reader
+            # object that will read from the opened file.
+            reader = csv.reader(text_file)
 
-        # Use the csv module to create a reader
-        # object that will read from the opened file.
-        reader = csv.reader(text_file)
+            # The first line of the CSV file contains column headings
+            # and not a student's I-Number and name, so this statement
+            # skips the first line of the CSV file.
+            next(reader)
 
-        # The first line of the CSV file contains column headings
-        # and not a student's I-Number and name, so this statement
-        # skips the first line of the CSV file.
-        next(reader)
+            # Process each row in the CSV file.
+            try:
+                line = 1
+                for row in reader:
+                    year = row[YEAR_COLUMN]
 
-        # Process each row in the CSV file.
-        try:
-          line = 1
-          for row in reader:
-              year = row[YEAR_COLUMN]
+                    # Call the estimate_reduction function.
+                    injur, fatal = estimate_reduction(
+                        row, PHONE_COLUMN, perc_reduc)
 
-              # Call the estimate_reduction function.
-              injur, fatal = estimate_reduction(row, PHONE_COLUMN, perc_reduc)
+                    # Print the estimated reductions in injuries and fatalities.
+                    print(year, injur, fatal, sep=", ")
+                    line += 1
+            except ZeroDivisionError:
+                print(f"Error: Unreadable line in {filename}, at line {line}")
 
-              # Print the estimated reductions in injuries and fatalities.
-              print(year, injur, fatal, sep=", ")
-              line += 1
-        except ZeroDivisionError:
-          print(f"Error: Unreadable line in {filename}, at line {line}")
+    except FileNotFoundError:
+        print(f"Error: {filename} not found")
 
-  except FileNotFoundError:
-    print(f"Error: {filename} not found")
-    
-  except PermissionError:
-    print(f"Error: cannot read from {filename}, missing permisions.")
+    except PermissionError:
+        print(f"Error: cannot read from {filename}, missing permisions.")
 
-  except (csv.Error):
-    print(f"Error: Line in {filename} not formatted correctly.")
+    except (csv.Error):
+        print(f"Error: Line in {filename} not formatted correctly.")
 
 
 def estimate_reduction(row, behavior_key, perc_reduc):
-  """Estimate and return the number of injuries and deaths that would
-  not have occurred on U.S. roads and highways if drivers had reduced
-  a dangerous behavior by a given percentage.
+    """Estimate and return the number of injuries and deaths that would
+    not have occurred on U.S. roads and highways if drivers had reduced
+    a dangerous behavior by a given percentage.
 
-  Parameters
-      row: a CSV row of data from the U.S. National Highway Traffic
-          Safety Administration (NHTSA)
-      behavior_key: heading from the CSV file for the dangerous
-          behavior that drivers could reduce
-      perc_reduc: percent that drivers could reduce a dangerous
-          behavior
-  Return: The number of injuries and deaths that may have been prevented
-  """
+    Parameters
+        row: a CSV row of data from the U.S. National Highway Traffic
+            Safety Administration (NHTSA)
+        behavior_key: heading from the CSV file for the dangerous
+            behavior that drivers could reduce
+        perc_reduc: percent that drivers could reduce a dangerous
+            behavior
+    Return: The number of injuries and deaths that may have been prevented
+    """
 
-  behavior = int(row[behavior_key])
-  fatal_crashes = int(row[FATAL_CRASHES_COLUMN])
-  ratio = perc_reduc / 100 * behavior / fatal_crashes
+    behavior = int(row[behavior_key])
+    fatal_crashes = int(row[FATAL_CRASHES_COLUMN])
+    ratio = perc_reduc / 100 * behavior / fatal_crashes
 
-  fatalities = int(row[FATALITIES_COLUMN])
-  injuries = int(row[INJURIES_COLUMN])
-  reduc_fatal = int(round(fatalities * ratio, 0))
-  reduc_injur = int(round(injuries * ratio, 0))
-  return reduc_injur, reduc_fatal
-  #except csv.Error:
-  #  print(f"Error: Error in {filename} at line {line}")
-      
-    
+    fatalities = int(row[FATALITIES_COLUMN])
+    injuries = int(row[INJURIES_COLUMN])
+    reduc_fatal = int(round(fatalities * ratio, 0))
+    reduc_injur = int(round(injuries * ratio, 0))
+    return reduc_injur, reduc_fatal
+    # except csv.Error:
+    #  print(f"Error: Error in {filename} at line {line}")
+
 
 # If this file was executed like this:
 # > python accidents.py

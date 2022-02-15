@@ -1,9 +1,17 @@
+'''
+Week 3 Checkpoint Fuel Efficiency
+Computes the efficiency of fuel in a vehicle
+May 4 2021
+'''
+
+
 def main():
     odom_start = int(input("Enter starting odometer value (miles): "))
 
     odom_end = int(input("Enter ending odometer value (miles): "))
 
-    fuel_gal = float(input("Enter fuel used (gallons): "))# Get a fuel amount in U.S. gallons from the user.
+    # Get a fuel amount in U.S. gallons from the user.
+    fuel_gal = float(input("Enter fuel used (gallons): "))
 
     mpg = miles_per_gallon(odom_start, odom_end, fuel_gal)
     # Call the miles_per_gallon function and store

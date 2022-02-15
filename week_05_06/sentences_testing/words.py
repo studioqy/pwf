@@ -1,3 +1,10 @@
+'''
+Week 6 Assignment Words
+Finds common prefixes and suffixes between two words
+May 29 2021
+'''
+
+
 def prefix(string1, string2):
     """Return the prefix, if any, that appears in both string1 and
     string2. In other words, return a string of the characters that
@@ -23,7 +30,7 @@ def prefix(string1, string2):
         i += 1
 
     # Extract a substring from string1 and return it.
-    pre = string1[0 : i]
+    pre = string1[0: i]
     return pre
 
 
@@ -56,5 +63,5 @@ def suffix(string1, string2):
         i2 -= 1
 
     # Extract a substring from string1 and return it.
-    suf = string1[i1+1 : ]
+    suf = string1[i1+1:]
     return suf
