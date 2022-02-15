@@ -28,8 +28,8 @@ The code in this repository does not include all of the code made in this class,
 | Week(s) | Type          | Program                     |
 | ------- | ------------- | --------------------------- |
 | 1       | Checkpoint    | Heart Rate                  |
-| 1       | Assignmentt   | Tire Volume                 |
-| 2       | Checkpointt   | Boxes                       |
+| 1       | Assignment    | Tire Volume                 |
+| 2       | Checkpoint    | Boxes                       |
 | 2       | Team Activity | Discount                    |
 | 3       | Checkpoint    | Fuel Efficiency             |
 | 4       | Checkpoint    | Cone Volume                 |
