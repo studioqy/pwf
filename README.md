@@ -25,22 +25,23 @@ The class encouraged students to add something extra, so many for the assignment
 
 The code in this repository does not include all of the code made in this class, just many of the important assignments that I still have. They are as follows:
 
-| Week(s) | Type          | Program              |
-| ------- | ------------- | -------------------- |
-| 1       | Checkpoint    | Heart Rate           |
-| 1       | Assignmentt   | Tire Volume          |
-| 2       | Checkpointt   | Boxes                |
-| 2       | Team Activity | Discount             |
-| 3       | Checkpoint    | Fuel Efficiency      |
-| 4       | Checkpoint    |                      |
-| 4       | Team Activity | Can Efficiency       |
-| 4       | Assignment    | Scenery              |
-| 8       | Checkpoint    |                      |
-| 8       | Team Activity | Multiplication Table |
-| 8       | Assignment    | Green Background     |
-| 9       | Checkpoint    | Friends List         |
-| 10      | Assignment    | Shopping Cart        |
-| 11      | Team Activity | Payroll              |
-| 12      | Checkpoint    | Youngest Person      |
-| 12      | Assignment    | Worldwide Expectancy |
-| 13      | Assiginment   | Wind Chill           |
+| Week(s) | Type          | Program                     |
+| ------- | ------------- | --------------------------- |
+| 1       | Checkpoint    | Heart Rate                  |
+| 1       | Assignmentt   | Tire Volume                 |
+| 2       | Checkpointt   | Boxes                       |
+| 2       | Team Activity | Discount                    |
+| 3       | Checkpoint    | Fuel Efficiency             |
+| 4       | Checkpoint    | Cone Volume                 |
+| 4       | Team Activity | Can Efficiency              |
+| 4       | Assignment    | Scenery                     |
+| 5       | Team Activity | Names                       |
+| 6       | Team Activity | Self Esteem                 |
+| 6       | Assignment    | Sentences                   |
+| 8       | Checkpoint    | Vehicles                    |
+| 8       | Team Activity | People Data                 |
+| 8       | Assignment    | Molecular Mass              |
+| 9       | Team Activity | Student Finder              |
+| 10      | Team Activity | Vehicle Accidents           |
+| 10      | Assiginment   | Receipt                     |
+| 13      | Project       | Journaling Prompt Generator |

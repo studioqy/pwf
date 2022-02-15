@@ -1,8 +1,8 @@
 '''
-Week 10 Checkpoint Vehicle Accidents
+Week 10 Team Activity Vehicle Accidents
 Determines how many vehicle accidents could have been prevented from any
 given percent reduction in texting while driving.
-Jun 22 2021
+Jun 24 2021
 '''
 import csv
 

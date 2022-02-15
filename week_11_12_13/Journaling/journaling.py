@@ -1,5 +1,5 @@
 '''
-Week 11-13 Assignment
+Week 13 Journaling Prompt Generator
 Journaling prompt generator that allows the user to add and generate prompts
 Jul 17 2021
 '''
